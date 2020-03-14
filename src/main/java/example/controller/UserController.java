@@ -19,6 +19,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
+    //Function 1
     @RequestMapping(value = "/view",method = RequestMethod.GET )
     public String ViewUser(@RequestParam("UserID") int UserID, Model model){
 
@@ -27,6 +29,7 @@ public class UserController {
         return "userview";
     }
 
+    //Function 2
     @RequestMapping(value = "/view2/{UserID}",method = RequestMethod.GET )
     public String ViewUser2(@PathVariable("UserID") int UserID, Map<String,Object> model){
         UserInfo userInfo=userService.getUserById(UserID);
