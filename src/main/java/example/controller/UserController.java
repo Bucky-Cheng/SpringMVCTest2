@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @Controller
@@ -34,6 +36,15 @@ public class UserController {
     public String ViewUser2(@PathVariable("UserID") int UserID, Map<String,Object> model){
         UserInfo userInfo=userService.getUserById(UserID);
         model.put("userInfo",userInfo);
+        return "userview";
+    }
+
+    //Function 3
+    @RequestMapping("view3")
+    public String ViewUser3(HttpServletRequest request){
+        int UserID=Integer.parseInt(request.getParameter("UserID"));
+        UserInfo userInfo=userService.getUserById(UserID);
+        request.setAttribute("userInfo",userInfo);
         return "userview";
     }
 }
