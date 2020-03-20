@@ -1,16 +1,13 @@
 package example.controller;
 
 import example.pojo.UserInfo;
+import example.pojo.UserUP;
 import example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
@@ -47,4 +44,20 @@ public class UserController {
         request.setAttribute("userInfo",userInfo);
         return "userview";
     }
+
+    //to login page
+    @RequestMapping("login")
+    public String ToLogIn(){
+        return "LogIn";
+    }
+
+    //get username and userpassword
+    @RequestMapping("logined")
+    public String LogIn(@RequestParam("userName") String Name, @RequestParam("userPassword")String Password, Model model){
+
+        UserUP userUP1 =userService.getUserUP(Name,Password);
+        model.addAttribute(userUP1);
+        return "userUPShow";
+    }
+
 }

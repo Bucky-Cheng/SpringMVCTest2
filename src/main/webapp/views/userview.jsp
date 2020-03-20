@@ -11,6 +11,7 @@
     <title>userview</title>
 </head>
 <body>
+<a href="<%=request.getContextPath()%>/users/login"><h2>LogIN:</h2></a>
 <h2>${userInfo.userID}</h2>
 <h2>${userInfo.userName}</h2>
 <h2>${userInfo.userType}</h2>

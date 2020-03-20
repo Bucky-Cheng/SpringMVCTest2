@@ -15,5 +15,6 @@
     </context:component-scan>
     <!--<bean class="example.service.UserService"/>-->
     <bean class="example.pojo.UserInfo"></bean>
+    <bean class="example.pojo.UserUP"></bean>
     <bean class="example.service.UserService" abstract="true"></bean>
 </beans>

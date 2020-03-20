@@ -1,6 +1,7 @@
 package example.service;
 
 import example.pojo.UserInfo;
+import example.pojo.UserUP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,8 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     UserInfo userInfo;
+    @Autowired
+    UserUP userUP;
 
     @Override
     public UserInfo getUserById(int UserID) {
@@ -20,5 +23,11 @@ public class UserServiceImpl implements UserService{
         userInfo.setCreditMax("15000");
         userInfo.setUserType("Platinum");
         return userInfo;
+    }
+
+    public UserUP getUserUP(String userName, String userPassword){
+        userUP.setUserName(userName);
+        userUP.setUserPassword(userPassword);
+        return userUP;
     }
 }
