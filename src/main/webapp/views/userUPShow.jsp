@@ -13,5 +13,6 @@
 <body>
     <h2>UserNAME:${userUP.userName}</h2>
     <h2>UserPassword:${userUP.userPassword}</h2>
+    <a href="<%=request.getContextPath()%>/users/fileupload"><h2>File Upload</h2></a>
 </body>
 </html>
